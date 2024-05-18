@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hello (num1,num2) {
+            // console.log('Hello World');
+            return parseInt(num1)+parseInt(num2);
+        }
+        const res=hello(2.2,5);
+        console.log(res);
+
+        const result=(num1,num2)=>{
+            return parseInt(num1)+parseInt(num2);
+            console.log(result(200,400));//結果不會出現，因為在return之後
+        }
+
+        const name=(name1,blood)=>`我是${name1},血型${blood}`;
+        console.log(name('john','0'));
+    </script>
+</body>
+</html>
