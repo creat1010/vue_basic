@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>title</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, nam. Alias porro nisi magnam dolorem assumenda modi hic, molestias delectus natus odit, dolore architecto enim repellat officiis, ex inventore quasi?</p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            Hello {{name}} ,技能樹{{skill['f2e'][0]}}
+            <p v-text="age"></p>
+            <h6 v-html="content"></h6>
+            <p v-html="music[1]"></p>
+            <p>{{live?'活著':'去逝'}}</p>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+        // console.log(Vue);
+        // debugger;
+        const app = Vue.createApp({
+            data() {
+            return {
+                name: "ingrid",
+                age: 29,
+                live: true,
+                music: ["chinese", "english", "american"],
+                skill: {
+                f2e: ["vue", "react"],
+                b2e: ["html", "css", "javascript"],
+                },
+                gender: null,
+                content:`<div style='color:red';>HELLO <br> WORLD</div>`
+            };
+            },
+        });
+        app.mount("#app");
+        </script>
+    </body>
 </html>
