@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: #aaf;
+            width: 20rem;
+            height: 20rem;
+        }
+        .color-1{
+            background-color: #ffa;
+        }
+        .color-2{
+            background-color: #faf;
+        }
+        .color-3{
+            background-color: #afa;
+        }
+        .color-4{
+            background-color: #afa;
+        }
+        .color-5{
+            background-color: #faa;
+        }
+    </style>
+    </head>
+    <body>
+    <div id="app">
+
+        <button @click="ChangeColor">換色</button>
+        <div :class="['box',colors]"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    color:['color-1','color-2','color-3','color-4','color-5'],
+                    colors:'color-1'
+                };
+            },
+            methods: {
+                ChangeColor(){
+                    const randomColor=Math.floor(Math.random()*6);
+                    this.colors=this.color[randomColor];
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
