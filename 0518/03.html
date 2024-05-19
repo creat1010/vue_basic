@@ -20,19 +20,19 @@
             data() {
                 return {
                     res:0,
-                    count:10,
+                    count:1,
                     total:0,
                     price:100,
-                    dollar:0
                 }
             },
             methods: {
                 parseDollar(){
-                    return this.price*30
+                    return this.total/30
                 },
                 parse(){
-                    console.log('Hello World');
-                    return this.res*this.price;
+                    // console.log('Hello World');
+                    this.total=this.res*this.price;
+                    return this.total;
                 },
                 add(){
                     if(this.res>=100)return
