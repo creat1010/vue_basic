@@ -29,16 +29,15 @@
     <div id="app">
         <div class="from">
             <h1>Shopping Cart</h1>
-            <div class="product">
                 <div class="item">
-                    <img src="{{cartList[1]['img']}}" alt="">
+                    <img src="{{cartList[0]['img']}}" alt="">
                     <div class="txt">
-                        <h2>{{cartList[1]['title']}}</h2>
-                        <p>{{cartList[1]['subTitle']}}</p>
-                        <p>{{cartList[1]['price']}}</p>
+                        <h2>{{cartList[0]['title']}}</h2>
+                        <p>{{cartList[0]['subTitle']}}</p>
+                        <p>{{cartList[0]['price']}}</p>
                     </div>
                     <button @click="reduce(1)">-</button>
-                    {{cartList[1]['count']}}
+                    {{cartList[0]['count']}}
                     <button @click="add(1)">+</button>
                 </div>
                 <button>X</button>
