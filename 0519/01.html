@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+    </head>
+    <body>
+    <div id="app">
+        <button @click="add">加大圖片</button>
+        <img src="images/image1.jpg" alt="">
+        <!-- <img src="images/image2.jpg" alt="">
+        <img src="images/image3.jpg" alt=""> -->
+        <img 
+        :src="imgurl" 
+        :style="{
+            width:`${widths}rem`,
+            backgroundColor:bg,
+            padding:'.5rem'
+        }" alt="">
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    imgurl:"images/image1.jpg",
+                    bg:'#999',
+                    widths:0
+                };
+            },
+            methods: {
+                add(){
+                    //每次按下去就加大圖片
+                    if(this.widths===9) return
+                    //延伸:每次按下去就改色
+                    this.widths+=1
+                    this.bg=`#${this.widths}${this.widths}${this.widths}`
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

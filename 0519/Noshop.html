@@ -1,0 +1,86 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #app{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        .product{
+            width: 60%;
+            background-color: #ccc;
+        }
+        .sales{
+            width: 40%;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="from">
+            <h1>Shopping Cart</h1>
+            <div class="product">
+                <div class="item">
+                    <img src="{{cartList[1]['img']}}" alt="">
+                    <div class="txt">
+                        <h2>{{cartList[1]['title']}}</h2>
+                        <p>{{cartList[1]['subTitle']}}</p>
+                        <p>{{cartList[1]['price']}}</p>
+                    </div>
+                    <button @click="reduce(1)">-</button>
+                    {{cartList[1]['count']}}
+                    <button @click="add(1)">+</button>
+                </div>
+                <button>X</button>
+            </div>
+            <div class="sales"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data () {
+                return{
+                    cartList:[
+                        {
+                        id:1,
+                        title:'aaa',
+                        subTitle:'bbb',
+                        price:100,
+                        count:1,
+                        img:'images/image1.jpg'
+                        },
+                        {
+                        id: 2,
+                        title: 'ccc',
+                        subTitle: 'ddd',
+                        price: 200,
+                        count: 2,
+                        img:'images/image2.jpg'
+                        }
+                ]
+                }
+            },
+            methods: {
+                add(index){
+                    this.cartList[index]['count']+=1
+                },
+                reduce(index){
+                    if(this.cartList[index]['count']==0) return
+                    this.cartList[index]['count']-=1
+                },
+            },
+        }).mount('#app')
+    </script>
+</body>
+</html>
